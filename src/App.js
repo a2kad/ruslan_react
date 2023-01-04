@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import HeaderSite from './components/HeaderSite';
+import Image from './components/Image';
+import logo from './img/logo.png'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+	constructor (props) {
+		super(props)
+		this.state = {
+			Hello: "-= Hello, World! =-",
+			userData: ""
+		}
+		this.inputClick = this.inputClick.bind(this)
+	}
+
+render(){
+	return(<div className='name'>
+	<HeaderSite />
+	<h1>{this.state.Hello}</h1>
+	<h2>{this.state.userData}</h2>
+	<input placeholder='Enter the text' 
+	onChange={event => this.setState({userData: event.target.value})}
+	onClick={this.inputClick} 
+	onMouseOver={this.mouseOver}></input>
+	<Image image={logo} />
+</div>
+)
+}
+inputClick () {
+	this.setState({Hello: "Clicked"})
+	console.log("Clicked")
+}
+mouseOver () {console.log("Mouse Over")}
 }
 
-export default App;
+export default App
