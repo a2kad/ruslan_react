@@ -1,17 +1,12 @@
-import React from 'react';
-import HeaderSite from './components/HeaderSite';
-import Users from './components/Users';
-class App extends React.Component {
+import React from "react";
+import './style/style.css';
 
-	render(){
-		return(<div>
-			<HeaderSite title="List of users"/>
-			<main>
-				<Users />
-			</main>
-			<aside></aside>
-		</div>)
-	}
+function App() {
+  return (
+    <div className="App">
+		<p>Hi</p>
+    </div>
+  );
 }
 
-export default App
+export default App;
